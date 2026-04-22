@@ -1,0 +1,36 @@
+// styles/_variables.scss
+
+// Цвета
+$bg-primary:       #F5F5F0;
+$bg-secondary:     #EEEEE8;
+$text-primary:     #1A1A18;
+$text-secondary:   #6B6B66;
+$border-color:     #B0AFA8;
+$accent:           #E8C840;   // жёлтый — лайк, активный таб, акцент
+$accent-hover:     #C9AC28;
+
+// Радиусы
+$radius-sm:  4px;
+$radius-md:  8px;
+$radius-lg:  12px;
+
+// Отступы
+$spacing-xs:  4px;
+$spacing-sm:  8px;
+$spacing-md:  16px;
+$spacing-lg:  24px;
+$spacing-xl:  40px;
+
+// Типографика
+$font-family:    'Inter', sans-serif;
+$font-size-xs:   11px;
+$font-size-sm:   12px;
+$font-size-md:   14px;
+$font-size-lg:   18px;
+$font-size-xl:   24px;
+
+// Переходы
+$transition: 150ms ease;
+
+// Иконки
+$icon-stroke: 1.5px;
