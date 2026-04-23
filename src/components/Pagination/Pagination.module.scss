@@ -1,0 +1,112 @@
+@use '../../styles/variables' as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  background-color: white;
+  color: $text-primary;
+  cursor: pointer;
+  transition: all $transition;
+  font-size: $font-size-md;
+  font-weight: 500;
+
+  &:hover:not(:disabled) {
+    background-color: $bg-secondary;
+    border-color: $text-primary;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $text-primary;
+    box-shadow: 0 0 0 2px rgba($text-primary, 0.1);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  svg {
+    stroke-width: $icon-stroke;
+  }
+}
+
+.pages {
+  display: flex;
+  gap: $spacing-xs;
+  align-items: center;
+}
+
+.pageButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  background-color: white;
+  color: $text-primary;
+  cursor: pointer;
+  transition: all $transition;
+  font-size: $font-size-md;
+  font-weight: 500;
+
+  &:hover {
+    background-color: $bg-secondary;
+    border-color: $text-primary;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $text-primary;
+    box-shadow: 0 0 0 2px rgba($text-primary, 0.1);
+  }
+
+  &.active {
+    background-color: $accent;
+    border-color: $accent;
+    color: $text-primary;
+    font-weight: 600;
+
+    &:hover {
+      background-color: $accent-hover;
+      border-color: $accent-hover;
+    }
+  }
+}
+
+.ellipsis {
+  padding: 0 $spacing-xs;
+  color: $text-secondary;
+  font-size: $font-size-md;
+}
+
+@media (max-width: 768px) {
+  .button,
+  .pageButton {
+    width: 32px;
+    height: 32px;
+    font-size: $font-size-sm;
+  }
+
+  .pagination {
+    gap: $spacing-xs;
+  }
+
+  .pages {
+    gap: 2px;
+  }
+}
