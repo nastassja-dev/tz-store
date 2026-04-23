@@ -1,0 +1,80 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  background-color: $bg-primary;
+  border-top: 1px solid $border-color;
+  padding: $spacing-lg 0;
+  margin-top: auto;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-lg;
+}
+
+.text {
+  margin: 0;
+  color: $text-secondary;
+  font-size: $font-size-md;
+  font-family: $font-family;
+}
+
+.links {
+  display: flex;
+  gap: $spacing-md;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: $text-primary;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  background-color: white;
+  transition: all $transition;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $bg-secondary;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $text-primary;
+    box-shadow: 0 0 0 2px $bg-primary, 0 0 0 4px $text-primary;
+  }
+
+  svg {
+    stroke-width: $icon-stroke;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: $spacing-md 0;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+
+  .text {
+    font-size: $font-size-sm;
+  }
+
+  .link {
+    width: 36px;
+    height: 36px;
+  }
+}
