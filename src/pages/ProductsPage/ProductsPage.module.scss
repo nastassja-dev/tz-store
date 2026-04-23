@@ -1,0 +1,66 @@
+@use '../../styles/variables' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid $border-color;
+}
+
+.resultCount {
+  margin: 0;
+  font-size: $font-size-md;
+  color: $text-secondary;
+
+  strong {
+    color: $text-primary;
+    font-weight: 600;
+  }
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: $spacing-xl;
+  font-size: $font-size-lg;
+  color: $text-secondary;
+}
+
+.error {
+  color: #d32f2f;
+  background-color: rgba(211, 47, 47, 0.05);
+  border-radius: $radius-md;
+}
+
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+  padding: $spacing-lg 0;
+  border-top: 1px solid $border-color;
+}
+
+@media (max-width: 768px) {
+  .page {
+    gap: $spacing-lg;
+    padding: $spacing-md;
+  }
+
+  .info {
+    padding-bottom: $spacing-sm;
+  }
+
+  .resultCount {
+    font-size: $font-size-sm;
+  }
+}
