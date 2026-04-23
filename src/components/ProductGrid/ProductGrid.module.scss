@@ -1,0 +1,44 @@
+@use '../../styles/variables' as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-lg;
+  width: 100%;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: $spacing-xl;
+  color: $text-secondary;
+  font-size: $font-size-md;
+
+  p {
+    margin: 0;
+  }
+}
+
+// Tablet (3 колонки)
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-md;
+  }
+}
+
+// Small tablet (2 колонки)
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+}
+
+// Mobile (1 колонка)
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
