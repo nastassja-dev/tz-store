@@ -3,6 +3,7 @@ import { Header } from './components/Header/Header'
 import { Footer } from './components/Footer/Footer'
 import { ProductsPage } from './pages/ProductsPage/ProductsPage'
 import { ProductDetailPage } from './pages/ProductDetailPage/ProductDetailPage'
+import { CreateProductPage } from './pages/CreateProductPage/CreateProductPage'
 import styles from './App.module.scss'
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
           <Routes>
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:id" element={<ProductDetailPage />} />
-            <Route path="/products/:id/edit" element={<div>Edit Product Page</div>} />
-            <Route path="/create-product" element={<div>Create Product Page</div>} />
+            <Route path="/products/:id/edit" element={<CreateProductPage />} />
+            <Route path="/create-product" element={<CreateProductPage />} />
             <Route path="/" element={<Navigate to="/products" replace />} />
             <Route path="*" element={<Navigate to="/products" replace />} />
           </Routes>
