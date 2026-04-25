@@ -43,51 +43,6 @@ Base URL: https://fakestoreapi.com
 ---
 
 ## Project Structure
-# TZ Store
-
-SPA product catalog with search, filtering, likes, creation, editing, and deletion. Built as a frontend test assignment. Deployed via GitHub Pages.
-
----
-
-## Setup & Run
-
-| Command | Description |
-|--------|------------|
-| `npm install` | Install dependencies |
-| `npm run dev` | Run dev server |
-| `npm run build` | Build project |
-
----
-
-## Tech Stack
-
-| Layer | Technology |
-|------|----------|
-| Language | TypeScript |
-| UI | React 18 |
-| State | Redux Toolkit |
-| Routing | React Router v6 |
-| Forms | react-hook-form |
-| Styling | SCSS Modules |
-| Icons | lucide-react |
-| Build | Vite |
-| Deploy | gh-pages |
-
----
-
-## API
-
-Base URL: https://fakestoreapi.com
-
-| Method | Endpoint | Description |
-|--------|---------|------------|
-| GET | `/products` | Get all products |
-| GET | `/products/:id` | Get single product |
-| POST | `/products` | Create product (stored locally) |
-
----
-
-## Project Structure
 
 src/
 ├── api/
@@ -98,7 +53,6 @@ src/
 ├── types/
 ├── App.tsx
 └── main.tsx
-
 
 ---
 
