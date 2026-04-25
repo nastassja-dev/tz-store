@@ -1,78 +1,194 @@
-# React + TypeScript + Vite
+# TZ Store
 
-Сборка: npm run build
-Запустить проект: npm install
-Запустить dev-сервер Vite: npm run dev
+SPA product catalog with search, filtering, likes, creation, editing, and deletion. Built as a frontend test assignment. Deployed via GitHub Pages.
+
+---
+
+## Setup & Run
+
+| Command | Description |
+|--------|------------|
+| `npm install` | Install dependencies |
+| `npm run dev` | Run dev server |
+| `npm run build` | Build project |
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|------|----------|
+| Language | TypeScript |
+| UI | React 18 |
+| State | Redux Toolkit |
+| Routing | React Router v6 |
+| Forms | react-hook-form |
+| Styling | SCSS Modules |
+| Icons | lucide-react |
+| Build | Vite |
+| Deploy | gh-pages |
+
+---
+
+## API
+
+Base URL: https://fakestoreapi.com
+
+| Method | Endpoint | Description |
+|--------|---------|------------|
+| GET | `/products` | Get all products |
+| GET | `/products/:id` | Get single product |
+| POST | `/products` | Create product (stored locally) |
+
+---
+
+## Project Structure
+# TZ Store
+
+SPA product catalog with search, filtering, likes, creation, editing, and deletion. Built as a frontend test assignment. Deployed via GitHub Pages.
+
+---
+
+## Setup & Run
+
+| Command | Description |
+|--------|------------|
+| `npm install` | Install dependencies |
+| `npm run dev` | Run dev server |
+| `npm run build` | Build project |
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|------|----------|
+| Language | TypeScript |
+| UI | React 18 |
+| State | Redux Toolkit |
+| Routing | React Router v6 |
+| Forms | react-hook-form |
+| Styling | SCSS Modules |
+| Icons | lucide-react |
+| Build | Vite |
+| Deploy | gh-pages |
+
+---
+
+## API
+
+Base URL: https://fakestoreapi.com
+
+| Method | Endpoint | Description |
+|--------|---------|------------|
+| GET | `/products` | Get all products |
+| GET | `/products/:id` | Get single product |
+| POST | `/products` | Create product (stored locally) |
+
+---
+
+## Project Structure
+
+src/
+├── api/
+├── components/
+├── pages/
+├── store/
+├── styles/
+├── types/
+├── App.tsx
+└── main.tsx
 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## Routing
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Path | Page |
+|------|-----|
+| `/products` | Products list |
+| `/products/:id` | Product details |
+| `/products/:id/edit` | Edit product |
+| `/create-product` | Create product |
+| `*` | Redirect to `/products` |
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Store (productsSlice)
 
-## Expanding the ESLint configuration
+| Field | Description |
+|------|------------|
+| items | All products |
+| likedIds | Liked product IDs |
+| filter | `all` \| `liked` |
+| search | Search query |
+| currentPage | Pagination state |
+| status | `idle` \| `loading` \| `error` |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Actions
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- `fetchProducts`
+- `addProduct`
+- `updateProduct`
+- `deleteProduct`
+- `toggleLike`
+- `setFilter`
+- `setSearch`
+- `setPage`
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Features
+
+- API data fetching
+- Search with debounce (300ms)
+- Filter (all / liked)
+- Client-side pagination
+- Like / unlike products
+- Create / edit / delete products
+- Product detail view
+- Image upload (drag & drop + URL)
+- Optimized rendering (`useMemo`)
+
+---
+
+## UI Principles
+
+| Rule | Description |
+|-----|------------|
+| Style | Minimal, monochrome |
+| Accent | `#E8C840` (limited usage) |
+| Borders | `1px solid` |
+| Shadows | None (except focus) |
+| Icons | Outline, stroke 1.5px |
+| Font | Inter |
+
+---
+
+## Deployment
+
+### Vite config
+```ts
+base: '/repo-name/'
+
+---
+
+## Scripts
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+"predeploy": "npm run build",
+"deploy": "gh-pages -d dist"
 ```
+___
+
+## Notes
+Copy dist/index.html → dist/404.html for routing support
+
+___
+
+## Author
+
+Nastassja Kamenskikh
+GitHub: https://github.com/nastassja-dev
+LinkedIn: https://www.linkedin.com/in/anastasiia-kamenskikh/
+
