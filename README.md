@@ -41,19 +41,6 @@ Base URL: https://fakestoreapi.com
 | GET | `/products/:id` | Get single product |
 | POST | `/products` | Create product (stored locally) |
 
----
-
-## Project Structure
-
-src/
-├── api/
-├── components/
-├── pages/
-├── store/
-├── styles/
-├── types/
-├── App.tsx
-└── main.tsx
 
 ---
 
