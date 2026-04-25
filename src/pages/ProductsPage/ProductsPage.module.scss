@@ -29,6 +29,15 @@
   }
 }
 
+.success {
+  margin-bottom: $spacing-md;
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $accent;
+  border-radius: $radius-md;
+  background-color: rgba($accent, 0.1);
+  color: $text-primary;
+}
+
 .loading,
 .error {
   text-align: center;
