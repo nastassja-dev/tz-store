@@ -7,7 +7,7 @@ export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <p className={styles.text}>Developed by Nastassja Kam</p>
+        <p className={styles.text}>Developed by Nastassja Kamenskikh</p>
         <div className={styles.links}>
           <a
             href={githubUrl}

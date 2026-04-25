@@ -77,35 +77,49 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  border: 1px solid $border-color;
-  border-radius: $radius-sm;
-  background-color: white;
+  border: 0;
+  background: none;
   color: $text-primary;
   cursor: pointer;
   transition: all $transition;
   padding: 0;
 
   &:hover {
-    background-color: $bg-secondary;
+    background: none;
   }
 
   &:focus {
     outline: none;
-    border-color: $text-primary;
-    box-shadow: 0 0 0 2px rgba($text-primary, 0.1);
+  }
+
+  &:focus-visible {
+    outline: 1px solid $text-secondary;
+    outline-offset: 2px;
+    border-radius: $radius-sm;
   }
 
   svg {
     stroke-width: $icon-stroke;
+    transition: stroke $transition, color $transition;
   }
 
-  &.liked {
-    color: $accent;
-    border-color: $accent;
+  // hover — подсветка только иконки
+  &:hover svg {
+    stroke: $text-secondary;
+  }
 
-    &:hover {
-      background-color: rgba($accent, 0.05);
+  // активный лайк
+  &.liked {
+    svg {
+      stroke: $accent;
+      color: $accent;
     }
+  }
+
+  // hover для лайка — жёлтый
+  &.liked:hover svg {
+    stroke: $accent;
+    color: $accent;
   }
 }
 
