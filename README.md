@@ -112,7 +112,7 @@ Base URL: https://fakestoreapi.com
 ### Vite config
 ```ts
 base: '/repo-name/'
-
+```
 ---
 
 ## Scripts
