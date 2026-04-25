@@ -7,6 +7,7 @@ import { createProduct } from '../../api/productsApi';
 import { ImageUpload } from '../../components/ImageUpload/ImageUpload';
 import type { Product } from '../../types/product';
 import styles from './CreateProductPage.module.scss';
+import { usePageTitle } from '../../hooks/usePageTitle';
 
 type FormData = Omit<Product, 'id'>;
 
@@ -15,7 +16,7 @@ export const CreateProductPage = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { items } = useAppSelector((state) => state.products);
-
+  usePageTitle('Create Product')
   const isEditMode = !!id;
   const product = isEditMode ? items.find((item) => String(item.id) === id) : undefined;
 
@@ -72,7 +73,7 @@ export const CreateProductPage = () => {
           id: newProduct.id || Math.floor(Math.random() * 10000),
         };
         dispatch(addProduct(productToAdd));
-        navigate('/products');
+        navigate('/products', {state: {success : 'Продукт успешно добавлен!'}});
       }
     } catch (error) {
       console.error('Ошибка при сохранении продукта:', error);

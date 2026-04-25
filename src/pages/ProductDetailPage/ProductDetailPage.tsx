@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import { usePageTitle } from '../../hooks/usePageTitle';
 import { Heart, Trash2, Edit } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { fetchProducts, toggleLike, deleteProduct } from '../../store/productsSlice';
@@ -10,9 +11,9 @@ export const ProductDetailPage = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { items, likedIds, status } = useAppSelector((state) => state.products);
-
   const product = items.find((item) => String(item.id) === id);
   const isLiked = product && likedIds.includes(Number(product.id));
+  usePageTitle('Product Details')
 
   // Загрузить продукты если нужно
   useEffect(() => {
