@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/tz-store/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TZ Store</title>
+    <script>
+      // Redirect to index.html for React Router to handle the routing
+      const pathSegments = window.location.pathname.split('/').filter(Boolean);
+      const isRouterPath =
+        pathSegments.includes('products') ||
+        pathSegments.includes('create-product');
+      
+      if (isRouterPath) {
+        // Store the path and redirect to index.html
+        sessionStorage.redirect = window.location.pathname + window.location.search;
+        window.location.href = '/tz-store/';
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/tz-store/src/main.tsx"></script>
+  </body>
+</html>
