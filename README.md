@@ -2,6 +2,7 @@
 
 SPA product catalog with search, filtering, likes, creation, editing, and deletion. Built as a frontend test assignment. Deployed via GitHub Pages.
 
+Demo: https://nastassja-dev.github.io/tz-store/
 ---
 
 ## Setup & Run
